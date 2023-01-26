@@ -1,37 +1,88 @@
-# Invera ToDo-List Challenge (Python/Django Jr-SSr)
+# Pasos para realizar una reserva de un cuarto del hotel
 
-El propósito de esta prueba es conocer tu capacidad para crear una pequeña aplicación funcional en un límite de tiempo. A continuación, encontrarás las funciones, los requisitos y los puntos clave que debés tener en cuenta durante el desarrollo.
+1. Primeramente para cubrir el flujo normal de operación de reserva se debe registrar/crear un nuevo cliente del hotel. (ES NECESARIO que se anote el "id" del cliente para poder luego utilizarlo al momento de registrar la reserva)
+2. Luego ya con el cliente creado se debe elegir el cuarto que se desea reservar. Para ello se debe acceder a la lista de cuartos disponibles en el hotel. (ANOTAR el número de cuarto que se desea elegir para realizar la reserva en el siguiente paso)
+3. Y para finalizar, ya con el "id" de mi cliente registrado y el "numero" de cuarto elegido se debe hacer la reserva. Son 6 los campos que debemos rellenar para hacer la reserva. Primero el "cuarto" y allí debemos poner el número de cuarto escogido, en el siguiente campo "cliente" se debe ingresar el "id" de nuestro cliente registrado, luego "fecha de entrada" indicamos desde que fecha reservamos el cuarto y en "fecha salida" en que día termina la reserva. En el campo "metodo de pago" podemos indicar que método de pago que querramos y en ultimo campo "estado" indicamos el estado del pago, en este ultimo campo solo nos va a aceptar entre 3 opciones (Pendiente, Pagado y Eliminado) son los valores que acepta este campo. Luego de rellenar todos los campos de debe envíar la petición y la reserva se abra realizado.
 
-## Qué queremos que hagas:
+# USO DE POSTMAN 
 
-- El Challenge consiste en crear una aplicación web sencilla que permita a los usuarios crear y mantener una lista de tareas.
-- La entrega del resultado será en un nuevo fork de este repo y deberás hacer una pequeña demo del funcionamiento y desarrollo del proyecto ante un super comité de las más grandes mentes maestras de Invera, o a un par de devs, lo que sea más fácil de conseguir.
-- Podes contactarnos en caso que tengas alguna consulta.
+A continuación se mostrará el camino de los 3 pasos descritos anteriormente con sus respectivos endpoints y ejemplos de su uso:
+## Endpoints:
 
-## Objetivos:
+Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos correspondientes (GET,POST):
 
-El usuario de la aplicación tiene que ser capaz de:
+1. 
 
-- Autenticarse
-- Crear una tarea
-- Eliminar una tarea
-- Marcar tareas como completadas
-- Poder ver una lista de todas las tareas existentes
-- Filtrar/buscar tareas por fecha de creación y/o por el contenido de la misma
+- Crear o Registrar "Cliente"  : http://localhost:8000/clientes/  
+ - Método: POST
+ - En Body / Raw / ejemplo de JSON:
+    
+    {
+    "Nombre": "Axel",
+    "Apellido": "Rose",
+    "Dni": 4354353455455
+    }
 
-## Qué evaluamos:
+- Devolverá el siguiente JSON con el Cliente creado:
 
-- Desarrollo utilizando Python, Django. No es necesario crear un Front-End, pero sí es necesario tener una API que permita cumplir con los objetivos de arriba.
-- Uso de librerías y paquetes estandares que reduzcan la cantidad de código propio añadido.
-- Calidad y arquitectura de código. Facilidad de lectura y mantenimiento del código. Estándares seguidos.
-- [Bonus] Manejo de logs.
-- [Bonus] Creación de tests (unitarias y de integración)
-- [Bonus] Unificar la solución propuesta en una imagen de Docker por repositorio para poder ser ejecutada en cualquier ambiente (si aplica para full stack).
+    {
+    "id": 8,
+    "Nombre": "Axel",
+    "Apellido": "Rose",
+    "Dni": 4354353455455
+    }
 
-## Requerimientos de entrega:
+* (El campo "id" debe ser utilizado al momento de hacer la reservación)
 
-- Hacer un fork del proyecto y pushearlo en github. Puede ser privado.
-- La solución debe correr correctamente.
-- El Readme debe contener todas las instrucciones para poder levantar la aplicación, en caso de ser necesario, y explicar cómo se usa.
-- Disponibilidad para realizar una pequeña demo del proyecto al finalizar el challenge.
-- Tiempo para la entrega: Aproximadamente 7 días.
+2. 
+
+- Ver Lista de "Cuartos"  : http://localhost:8000/api/Cuartos/    
+ - Método: GET
+ - Suministrará una lista con todos los cuartos del hotel disponibles y sus características.
+
+
+- Crear "Reservación"  : http://localhost:8000/reservaciones/  
+ - Método: POST
+ - En Body / Raw / ejemplo de JSON:
+    
+    {
+    "cuarto": 5,
+    "cliente": 7,
+    "fecha_entrada": "2024-02-02",
+    "fecha_salida": "2024-02-10",
+    "metodo_de_pago": "Tarjeta",
+    "estado": "Pagado"
+    }
+
+3. 
+
+- Ver Lista de "Reservas"  : http://localhost:8000/api/ReservasHotel/    
+ - Método: GET
+ - Suministrará una lista con todos las reservas del hotel.
+
+
+- Ver Lista de "Clientes"  : http://localhost:8000/api/Clientes/   
+ - Método: GET
+ - Suministrará una lista con todos los clientes del hotel registrados.
+
+
+
+
+## Instrucciones: Aplicación conteiner de Docker:
+
+1.	Hacer un “PULL” por consola para descargar el contenedor de la aplicación, al siguiente repositorio de DockerHub: 
+
+“docker pull lukasredfield/todolist:1.0”
+
+2.	Luego introducir por consola el comando para correr la aplicación y levantarla en el servidor: 
+
+“docker run -p 8000:8000 lukasredfield/todolist:1.0” 
+
+3.	Introducir en el browser “locashost:8000” para acceder a la aplicación. En la página de inicio hacer login y acceder al administrador con el siguiente usuario y contraseña:
+
+Usuario: admin
+Contraseña: 12345
+
+4.	Aquí podemos realizar todas las acciones y las funcionalidades anteriormente descritas, pero ahora corriendo desde el contenedor de Docker.
+
+
