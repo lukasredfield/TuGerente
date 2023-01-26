@@ -2,7 +2,7 @@ FROM python:3.10.9-alpine3.17
 
 ENV PYTHONUNBUFFERED = 1
 
-WORKDIR /app
+WORKDIR /ReservasHotel
 
 RUN  apk update \
 	&& pip install --upgrade pip

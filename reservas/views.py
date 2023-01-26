@@ -26,6 +26,7 @@ class ClienteDeleteView(generics.DestroyAPIView):
 class ReservacionApiViewSet(ModelViewSet):
     serializer_class = ReservacionSerializer
     queryset = Reservacion.objects.all()
+    lookup_field = 'cliente'
     filter_backends = [filters.SearchFilter]
     search_fields = ['cliente']
 
@@ -48,6 +49,7 @@ class ReservacionDeleteView(generics.DestroyAPIView):
 class CuartoApiViewSet(ModelViewSet):
     serializer_class = CuartoSerializer
     queryset = Cuarto.objects.all()
+    lookup_field = 'numero'
     filter_backends = [filters.SearchFilter]
     search_fields = ['numero']
 

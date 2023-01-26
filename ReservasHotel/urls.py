@@ -26,9 +26,11 @@ urlpatterns = [
     path('clientes/update/<int:pk>', ClienteUpdateView.as_view(), name='cliente-update'),
     path('clientes/delete/<int:pk>', ClienteDeleteView.as_view(), name='cliente-delete'),
     path('cuartos/', CuartoCreateView.as_view(), name='cuarto-create'),
+    path('cuartos/<int:numero>', CuartoApiViewSet.as_view({"get": "retrieve"}), name='cuarto-ver'),
     path('cuartos/update/<int:numero>', CuartoUpdateView.as_view(), name='cuarto-update'),
     path('cuartos/delete/<int:numero>', CuartoDeleteView.as_view(), name='cuarto-delete'),
     path('reservaciones/', ReservacionCreateView.as_view(), name='reservacion-create'),
+    path('reservaciones/<int:cliente>', ReservacionApiViewSet.as_view({"get": "retrieve"}), name='reservacion-ver'),
     path('reservaciones/update/<int:cliente>', ReservacionUpdateView.as_view(), name='reservacion-update'),
     path('reservaciones/delete/<int:cliente>', ReservacionDeleteView.as_view(), name='reservacion-delete'),
 ]
