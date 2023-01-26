@@ -26,7 +26,7 @@ Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos co
 - Devolverá el siguiente JSON con el Cliente creado:
 
     {
-    "id": 8,
+    "id": 5,
     "Nombre": "Axel",
     "Apellido": "Rose",
     "Dni": 4354353455455
@@ -97,7 +97,20 @@ Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos co
  - Método: GET
  - Suministrará una lista con todos los clientes del hotel registrados.
 
+# Lista completa de endpoints:
 
+1. Crear Cliente:                                              http://localhost:8000/clientes/
+2. Actualizar Cliente (Indicar numero de "id" al final):       http://localhost:8000/clientes/update/1
+3. Borrar Cliente (Indicar numero de "id" al final) :          http://localhost:8000/clientes/delete/12 
+4. Ver lista de Clientes:                                      http://localhost:8000/api/Clientes/
+5. Crear Cuarto:                                               http://localhost:8000/cuartos/
+6. Actualizar Cuarto (Indicar "numero" del cuarto al final) :  http://localhost:8000/cuartos/update/1 
+7. Borrar Cuarto (Indicar "numero" del cuarto al final) :      http://localhost:8000/cuartos/delete/8 
+8. Ver lista de Cuartos:                                       http://localhost:8000/api/Cuartos/8
+9. Crear Reserva:                                              http://localhost:8000/api/ReservasHotel/
+10. Actualizar Reserva (Indicar numero del cliente al final) :   http://localhost:8000/reservaciones/update/10
+11. Borrar Reserva  (Indicar numero del cliente al final) :    http://localhost:8000/reservaciones/delete/8
+12. Ver lista de Reservas:                                     http://localhost:8000/api/ReservasHotel/ 
 
 
 ## Instrucciones: Aplicación conteiner de Docker:

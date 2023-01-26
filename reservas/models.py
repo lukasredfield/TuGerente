@@ -2,6 +2,7 @@ from django.db import models
 from rest_framework import status
 from rest_framework.response import Response
 
+"""Cliente"""
 class Cliente(models.Model):
     id = models.AutoField(primary_key=True)
     Nombre = models.CharField(max_length=50)
@@ -14,6 +15,8 @@ class Cliente(models.Model):
     def __str__(self):
         return self.Nombre
 
+
+"""Cuarto"""
 
 class Cuarto(models.Model):
     class disponibilidad(models.TextChoices):
@@ -34,7 +37,7 @@ class Cuarto(models.Model):
     def __str__(self):
         return str(self.numero)
 
-
+"""Reserva"""
 class Reservacion(models.Model):
     class Status(models.TextChoices):
         PENDIENTE = 'Pendiente'

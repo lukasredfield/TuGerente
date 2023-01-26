@@ -17,11 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from reservas.router import router
 from django.urls import path
-from reservas.views import ClienteCreateView, ReservacionCreateView
+from reservas.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('clientes/', ClienteCreateView.as_view(), name='cliente-create'),
+    path('clientes/update/<int:pk>', ClienteUpdateView.as_view(), name='cliente-update'),
+    path('clientes/delete/<int:pk>', ClienteDeleteView.as_view(), name='cliente-delete'),
+    path('cuartos/', CuartoCreateView.as_view(), name='cuarto-create'),
+    path('cuartos/update/<int:numero>', CuartoUpdateView.as_view(), name='cuarto-update'),
+    path('cuartos/delete/<int:numero>', CuartoDeleteView.as_view(), name='cuarto-delete'),
     path('reservaciones/', ReservacionCreateView.as_view(), name='reservacion-create'),
+    path('reservaciones/update/<int:cliente>', ReservacionUpdateView.as_view(), name='reservacion-update'),
+    path('reservaciones/delete/<int:cliente>', ReservacionDeleteView.as_view(), name='reservacion-delete'),
 ]
