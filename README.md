@@ -88,7 +88,7 @@ Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos co
 
 - Ver Lista de "Reservas"  : http://localhost:8000/api/ReservasHotel/    
  - Método: GET
- - Suministrará una lista con todos las reservas del hotel.
+ - Suministrará una lista con todas las reservas del hotel.
 
 
 5. 

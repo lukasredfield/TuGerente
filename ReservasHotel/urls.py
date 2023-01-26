@@ -22,7 +22,6 @@ from reservas.views import ClienteCreateView, ReservacionCreateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('usuarios/', include('usuarios.urls')),
     path('clientes/', ClienteCreateView.as_view(), name='cliente-create'),
     path('reservaciones/', ReservacionCreateView.as_view(), name='reservacion-create'),
 ]
