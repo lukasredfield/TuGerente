@@ -51,6 +51,8 @@ Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos co
         "ocupado": "No"
     },
 
+* (El campo "numero" debe ser utilizado al momento de hacer la reservación)
+
 
 
 3. 
