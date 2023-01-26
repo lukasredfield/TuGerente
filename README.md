@@ -125,7 +125,7 @@ Utilizando Postman se debe ingresar los siguientes endpoints con sus métodos co
 
 2.	Luego introducir por consola el comando para correr la aplicación y levantarla en el servidor: 
 
-“docker run -p 8000:8000 lucasagustinguido/reservashotel:1.0” 
+“docker run -d -p 8000:8000 lucasagustinguido/reservashotel:1.0” 
 
 3.	Introducir en el browser “locashost:8000” para acceder a la aplicación. En la página de inicio hacer login y acceder al administrador con el siguiente usuario y contraseña:
 
